@@ -1,0 +1,166 @@
+/* ==========================================================================
+/* ktra
+/* --------------------------------------------------------------------------
+$random-color: $green
+
+body
+  +main-font
+  text-shadow: none
+  background: $base-color
+  color: $text-color
+  line-height: 2.0
+  +clearfix
+  font-size: 13px
+  overflow: scroll
+a
+  color: $random-color
+  text-decoration: none
+  +transition-duration(.3s)
+  &:hover
+    color: darken($random-color, 10%)
+
+.num
+  +num-font
+  font-size: 120%
+
+.side
+  width: $side-width
+  position: fixed
+  background: $random-color
+  top: 0
+  left: 0
+  padding: $margin 
+  height: 100%
+  a
+    color: rgba(white, .8)
+    &:hover
+      color: white
+  header
+    +relative
+    h1
+      +logo-font
+      font-size: 100px
+      line-height: 1
+      margin-bottom: $margin
+      a
+        color: white
+    .author
+      +absolute
+      bottom: 0
+    .social-media
+      +clearfix
+      li
+        float: left
+        margin-right: $margin
+  .inner
+    +relative
+    top: 40%
+  .archives
+    margin-bottom: $margin
+    border-top: 1px solid $line-color
+    font-size: $size-12px
+    li
+      +clearfix
+      padding:
+        top: 10px
+        bottom: 10px
+      +clearfix
+      border-bottom: 1px solid $line-color
+      .date
+        +num-font
+        color: rgba(0,0,0,.3)
+        float: left
+        line-height: 1.1
+        display: block
+        margin-right: 5px
+        width: 40px
+        .month
+          font-size: 10px
+        .day
+          font-size: 20px
+      .title
+        a
+          display: block
+          line-height: 1.5
+          overflow: hidden
+
+  .tags
+    +clearfix
+    li
+      float: left
+      margin:
+        right: 5px
+        bottom: 5px
+      font-size: 11px
+      a
+        background: rgba(0,0,0,.05)
+        +border-radius(2px)
+        display: inline-block
+        padding: 5px
+        line-height: 1
+        .num
+          margin-left: 5px
+          font-size: 110%
+          color: rgba(white, .5)
+        &:hover
+          background: rgba(0,0,0,.1)
+          .num
+            color: white
+
+#main
+  margin-left: $side-width + $margin * 2
+  width: $main-width
+  padding: $margin * 2
+    left: $margin * 2
+  background: white
+  h2
+    margin-bottom: $margin
+    +pie-clearfix
+    .title
+      display: block
+      +serif
+      font-size: 300%
+      line-height: 1.2
+      overflow: hidden
+      +relative
+      left: -1 * $margin
+    .date
+      +relative
+      left: -1 * $margin * 2
+      color: $random-color
+      display: block
+      +num-font
+      width: 40px
+      float: left
+      line-height: 1
+      margin:
+        top: 10px
+        right: 5px
+      span
+        display: block
+        &.year
+          font-size: 14px
+          border-bottom: 1px solid rgba($random-color, .3)
+          margin-bottom: 3px
+        &.month
+          font-size: 14px
+          border-bottom: 1px solid rgba($random-color, .3)
+          margin-bottom: 3px
+        &.day
+          font-size: 36px
+          border-bottom: none
+  h3
+    font-size: $size-20px
+    line-height: 1.5
+    margin:
+      top: $margin
+      bottom: $margin
+  p
+    margin-bottom: $inner-margin
+  .article
+    margin:
+      top: $margin * 2
+    border-bottom: 1px solid $line-color
+  .article-body
+    margin-bottom: $margin * 2
+    font-size: $size-13px

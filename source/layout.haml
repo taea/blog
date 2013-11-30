@@ -3,25 +3,48 @@
   %head
     %meta{charset: "utf-8"}/
     %meta{content: "IE=edge;chrome=1", "http-equiv" => "X-UA-Compatible"}/
+    %meta{:content => "width=device-width, initial-scale=1.0, minimum-scale=1, maximum-scale=1, user-scalable=no", :name => "viewport"}
+    %link{rel: "shortcut icon", href: "images/favicon.ico"}
+    %title= data.page.title
+    = stylesheet_link_tag "application"
+    = javascript_include_tag  "all"
   %body
     #main{role: "main"}
       = yield
-    %aside
-      %h2 Recent Articles
-      %ol
-        - blog.articles[0...10].each do |article|
-          %li
-            = link_to article.title, article
-            %span= article.date.strftime('%b %e')
-      %h2 Tags
-      %ol
-        - blog.tags.each do |tag, articles|
-          %li
-            = link_to tag, tag_path(tag)
-            (#{articles.size})
-      %h2 By Year
-      %ol
-        - blog.articles.group_by {|a| a.date.year }.each do |year, articles|
-          %li
-            = link_to year, blog_year_path(year)
-            (#{articles.size})
+    .side
+      .inner
+        %header
+          %h1= link_to 'crow.ly', '/'
+          %p.author= link_to 'by @ken_c_lo', 'https://twitter.com/ken_c_lo', target: '_blank'
+          %ul.social-media
+            %li
+              = link_to 'https://twitter.com/ken_c_lo', target: '_blank' do
+                %i.icon-twitter
+            %li
+              = link_to 'https://github.com/taea', target: '_blank' do
+                %i.icon-github
+            %li
+              = link_to 'https://facebook.com/TAEKO.A', target: '_blank' do
+                %i.icon-facebook-sign
+             
+        %aside
+          %ul.archives
+            - blog.articles[0...5].each do |article|
+              %li
+                %span.date
+                  %span.month= article.date.strftime('%m')
+                  %span.day= article.date.strftime('%e')
+                %span.title= link_to article.title, article
+          %ul.tags
+            - blog.tags.each do |tag, articles|
+              %li
+                = link_to tag_path(tag) do
+                  = tag
+                  %span.num<>= tag.size
+          -# 
+            %h2 By Year
+            %ol
+              - blog.articles.group_by {|a| a.date.year }.each do |year, articles|
+                %li
+                  = link_to year, blog_year_path(year)
+                  (#{articles.size})
