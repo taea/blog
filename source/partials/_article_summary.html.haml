@@ -1,0 +1,8 @@
+%li.article-summary
+  .article-title
+    .date
+      %span.year= article.date.strftime('%Y')
+      %span.month= article.date.strftime('%m')
+      %span.day= article.date.strftime('%d')
+    %h2.title= link_to article.title, article
+  .article-body

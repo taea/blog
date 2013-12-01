@@ -50,41 +50,49 @@
         background: rgba(0,0,0,.1)
         .num
           color: white
+%date
+  +absolute
+  left: -1 * $margin * 2
+  top: 10px
+  color: $random-color
+  display: block
+  +num-font
+  width: 40px
+  float: left
+  line-height: 1
+  span
+    display: block
+    &.year
+      font-size: 14px
+      border-bottom: 1px solid rgba($random-color, .3)
+      margin-bottom: 3px
+    &.month
+      font-size: 14px
+      border-bottom: 1px solid rgba($random-color, .3)
+      margin-bottom: 3px
+    &.day
+      font-size: 36px
+      border-bottom: none
+      letter-spacing: -1px
 
 %article-title-large
   margin-bottom: $margin
   +pie-clearfix
-  .title
-    display: block
-    +serif
-    font-size: 300%
-    line-height: 1.2
-    overflow: hidden
-    +relative
-    left: -1 * $margin
-  .date
-    +relative
-    left: -1 * $margin * 2
+  display: block
+  +serif
+  font-size: 300%
+  line-height: 1.2
+  overflow: hidden
+
+%index-title
+  strong
     color: $random-color
-    display: block
-    +num-font
-    width: 40px
-    float: left
-    line-height: 1
-    margin:
-      top: 10px
-      right: 5px
-    span
-      display: block
-      &.year
-        font-size: 14px
-        border-bottom: 1px solid rgba($random-color, .3)
-        margin-bottom: 3px
-      &.month
-        font-size: 14px
-        border-bottom: 1px solid rgba($random-color, .3)
-        margin-bottom: 3px
-      &.day
-        font-size: 36px
-        border-bottom: none
-        letter-spacing: -1px
+    font-size: 500%
+    margin-bottom: $margin
+    font-weight: 100
+  .prefix
+    color: $base-color
+    +relative
+    top: -20px
+  .num
+    font-size: 500%

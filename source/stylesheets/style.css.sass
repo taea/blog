@@ -69,8 +69,12 @@ a
   padding: $margin * 2
     left: $margin * 2
   background: white
-  h2
+  .article
+    +relative
+  .title
     @extend %article-title-large
+  .date
+    @extend %date
   h3
     font-size: $size-20px
     line-height: 1.5
@@ -86,3 +90,10 @@ a
   .article-body
     margin-bottom: $margin * 2
     font-size: $size-13px
+  .articles-index
+    .title
+      font-size: 180%
+
+.tags-index
+  h1
+    @extend %index-title
