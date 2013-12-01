@@ -1,12 +1,7 @@
 ---
 pageable: true
-per_page: 5
+per_page: 20
 ---
-- if paginate && num_pages > 1
-  %p
-    Page #{page_number} of #{num_pages}
-  - if prev_page
-    %p= link_to 'Previous page', prev_page
 - page_articles.each_with_index do |article, i|
   %article.article
     %h2
@@ -19,6 +14,12 @@ per_page: 5
       use article.summary(250) if you have Nokogiri available to show just
       the first 250 characters
     .article-body= article.body
+
+- if paginate && num_pages > 1
+  %p
+    Page #{page_number} of #{num_pages}
+  - if prev_page
+    %p= link_to 'Previous page', prev_page
 - if paginate
   - if next_page
     %p= link_to 'Next page', next_page
