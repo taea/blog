@@ -4,12 +4,7 @@ per_page: 20
 ---
 - page_articles.each_with_index do |article, i|
   %article.article
-    %h2
-      %span.date
-        %span.year= article.date.strftime('%Y')
-        %span.month= article.date.strftime('%m')
-        %span.day= article.date.strftime('%d')
-      %span.title= link_to article.title, article
+    = partial 'partials/article_title', locals: { article: article }
     /
       use article.summary(250) if you have Nokogiri available to show just
       the first 250 characters
